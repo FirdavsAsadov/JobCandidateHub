@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobCandidateHub.Application\JobCandidateHub.Application.csproj" />
     <ProjectReference Include="..\JobCandidateHub.Domain\JobCandidateHub.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
