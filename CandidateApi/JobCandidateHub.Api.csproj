@@ -15,4 +15,8 @@
     <ProjectReference Include="..\JobCandidateHub.Infrastructure\JobCandidateHub.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
