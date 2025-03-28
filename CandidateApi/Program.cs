@@ -1,16 +1,13 @@
-using JobCandidateHub.Infrastructure.Extensions;
+using JobCandidateHub.Api.Configurations;
 using JobCandidateHub.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddInfrastructureServices(builder.Configuration);
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+await builder.ConfigureAsync();
 
 var app = builder.Build();
+await app.ConfigureAsync();
+
 
 using (var scope = app.Services.CreateScope())
 {
@@ -18,16 +15,4 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+await app.RunAsync();

@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Configurations\HostConfiguration.Extensions.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
@@ -21,10 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Configurations\HostConfiguration.Extensions.cs" />
   </ItemGroup>
 
 </Project>
