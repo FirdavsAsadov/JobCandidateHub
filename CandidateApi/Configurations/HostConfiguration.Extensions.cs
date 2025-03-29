@@ -1,7 +1,9 @@
 ﻿using JobCandidateHub.Application.Interfaces.Repositories;
 using JobCandidateHub.Application.Interfaces.Services;
 using JobCandidateHub.Application.Services;
+using JobCandidateHub.Infrastructure.Persistence;
 using JobCandidateHub.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace JobCandidateHub.Api.Configurations;
@@ -19,6 +21,14 @@ public static partial class HostConfiguration
     private static WebApplicationBuilder AddMappers(this WebApplicationBuilder builder)
     {
         builder.Services.AddAutoMapper(Assemblies);
+
+        return builder;
+    }
+
+    private static WebApplicationBuilder AddJobCandidateHubDbContext(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         return builder;
     }

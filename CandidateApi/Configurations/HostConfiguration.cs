@@ -6,6 +6,7 @@
         {
             builder
                 .AddMappers()
+                .AddJobCandidateHubDbContext()
                 .AddJobCandidateHubServices()
                 .AddJobCandidateHubRepositories()
                 .AddDevTools()

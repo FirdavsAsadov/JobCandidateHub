@@ -16,6 +16,7 @@ public class CandidateRepository : ICandidateRepository
     public async Task CreateAsync(Candidate candidate)
     {
         await _context.Candidates.AddAsync(candidate);
+        await _context.SaveChangesAsync();
     }
 
 
@@ -28,5 +29,6 @@ public class CandidateRepository : ICandidateRepository
     public async Task UpdateAsync(Candidate candidate)
     {
          _context.Candidates.Update(candidate);
+        await _context.SaveChangesAsync();
     }
 }
