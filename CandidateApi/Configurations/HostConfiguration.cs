@@ -7,6 +7,7 @@
             builder
                 .AddMappers()
                 .AddJobCandidateHubDbContext()
+                .AddJobCandidateHubMemoryCache()
                 .AddJobCandidateHubServices()
                 .AddJobCandidateHubRepositories()
                 .AddDevTools()

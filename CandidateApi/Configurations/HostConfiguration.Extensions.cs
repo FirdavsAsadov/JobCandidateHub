@@ -33,6 +33,12 @@ public static partial class HostConfiguration
         return builder;
     }
 
+    private static WebApplicationBuilder AddJobCandidateHubMemoryCache(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddMemoryCache();
+        return builder;
+    }
+
     private static WebApplicationBuilder AddJobCandidateHubServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ICandidateService, CandidateService>();
